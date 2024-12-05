@@ -2,6 +2,9 @@ from .masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(number_with_type: str) -> str:
+    """Функция принимает номер карты или счета в формате "Visa Platinum 7000792289606361",
+    или "Maestro 7000792289606361", или "Счет 73654108430135874305" и маскирует
+    их в зависимости от типа"""
     acceptable_types = {"card": " Visa Platinum , Maestro ", "account": " Счет "}
     only_number = ""
     only_type = ""
@@ -19,4 +22,6 @@ def mask_account_card(number_with_type: str) -> str:
 
 
 def get_date(date_input: str) -> str:
+    """Функция принимает строку в формате "2024-03-11T02:26:18.671407"
+    и возвращает строку с датой в формате "ДД.ММ.ГГГГ" ("11.03.2024")"""
     return f'"{date_input[8:10]}.{date_input[5:7]}.{date_input[:4]}"'
