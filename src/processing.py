@@ -10,3 +10,7 @@ def filter_by_state(dictionary_list: list, state_value: Any = "EXECUTED") -> lis
             new_dictionary_list.append(dictionary)
     return new_dictionary_list
 
+
+def sort_by_date(dictionary_list: list, is_reverse: bool = True) -> list:
+    """Функция принимает список словарей и сортирует их по датам (по-умолчанию: по убыванию)"""
+    return sorted(dictionary_list, key=lambda x: x["date"], reverse=is_reverse)
